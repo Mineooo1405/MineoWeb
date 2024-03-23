@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Mineo's site</title>
+        <link rel="icon" href="static/style/logo.png">
+        <link rel="stylesheet" type="text/css" href="static\style\style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Anek+Malayalam:wght@100..800&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body class="bg">
+        <section> 
+            <nav>
+                <a href="/"><img src="static/style/images/logo.png"></a>
+                <div class="nav-link" id="navLinks">
+                    <i class="fa fa-times" onclick="hideMenu()"></i>   
+                    <ul>  
+                        <li>
+                            <a href="/">HOME</a>
+                        </li>
+                        <li>
+                            <div class="dropdown">
+                                <a>MACHINE LEARNING</a>
+                                <div class="dropdown-content">
+                                    <a href="">K-Nearest Neighbor</a>
+                                    <a href="">Support Vector Machine</a>
+                                    <a href="/Naive_Bayes">Naive Bayes</a>
+                                </div>
+                            </div>
+                            
+                        </li>
+                        <li>
+                            <a href="">ABOUT</a>
+                        </li>
+                        <li>
+                            <a href="">MISC</a>
+                        </li>
+                    </ul>
+                </div>
+                <i class="fa fa-bars" onclick="showMenu()"></i>
+            </nav>
+        </section>
+        <section class ="section">
+            <div class="text-box">
+                <h1>Naïve Bayes</h1>
+                <p><strong> Naïve Bayes</strong>  is an supervise learning algorithm. The Naive Bayesian classifier is based on Bayes theorem with the independence assumptions between predictors. It is mainly used in text classification that includes a high-dimensional training dataset. It is a probabilistic classifier, which means it predicts on the basis of the probability of an object </p>
+                <p>Naïve Bayes Classifier is one of the simple and most effective Classification algorithms which helps in building the fast machine learning models that can make quick predictions.</p>
+                <p>It is mainly used in text classification that includes a high-dimensional training dataset.</p>
+                <img src="static/style/images/NBformula.png" alt="Naive Bayes Formula" class="image">
+                <h1>Why is it call Naive Bayes? </h1>
+                <p><strong>Naive</strong> It is called Naïve because it assumes that the occurrence of a certain feature is independent of the occurrence of other features.</p>
+                <p><strong>Bayes</strong> It is called Bayes because it depends on the principle of Bayes' Theorem.</p>
+                <h1>Advantage and Disadvantage of Naive Bayes </h1>
+                <p><strong>Advantage</strong></p>
+                <li>Naïve Bayes is one of the fast and easy ML algorithms to predict a class of datasets.</li>
+                <li>It can be used for Binary as well as Multi-class Classifications.</li>
+                <li>It performs well in Multi-class predictions as compared to the other Algorithms.</li>
+                <li>It is the most popular choice for text classification problems.</li>
+                <p><strong>Disadvantage</strong></p>
+                <li>Naive Bayes assumes that all features are independent or unrelated, so it cannot learn the relationship between feature</li>
+                <h1>Naive Bayes - Pseudocode</h1>
+                <li><strong>Step 1:</strong> Convert the given dataset into frequency tables. </li>
+                <li><strong>Step 2:</strong> Generate Likelihood table by finding the probabilities of given features.</li>
+                <li><strong>Step 3:</strong> Use Bayes theorem to calculate the posterior probability</li>
+                <li><strong>Step 4:</strong> Define the output based on the probability.</li>         
+                <h1>KNN-predictor</h1>
+                <p>Here is my trained Naive Bayes model, i trained it with only 50 cases of spam and non-spam mail so its accuracy is very bad.</p>
+                <p>The training dataset and predict dataset is in form of pandas dataframe, the input can be a paragraph or a sentence</p>
+                <p>The algorithm process base on word frequency</p>
+                <section class="box">
+                    <form method = "POST" id="subm">
+                        <label id="text1"><strong>Input an email without Subject:</strong> </label>
+                        <input class="input" type="text" name="text" placeholder="Input here" id="text">
+                        <input type = "submit" id="text2">
+                        <p id="demo" class="result"></p>
+                    </form>
+                </section>
+
+            </div>
+        </section>
+        <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+        crossorigin="anonymous">
+        </script>
+        <script type="text/javascript">
+            $(document).on('submit','#subm',function(e)
+            {
+              e.preventDefault();
+              $.ajax({
+                type:'POST',
+                url:'/Naive_Bayes',
+                data:{
+                    text:$("#text").val()
+                },
+                success:function(response)
+                {
+                    var result = response
+                    console.log(result);
+                    document.getElementById("demo").innerHTML ="The result is "+ result;
+                    document.getElementById("text").style.display = "none";
+                    document.getElementById("text1").style.display = "none";
+                    document.getElementById("text2").style.display = "none";
+                }
+              })
+            });
+          </script>
+        <script>
+            var navLinks = document.getElementById("navLinks");
+            function showMenu(){
+                navLinks.style.right="0";
+            }
+            function hideMenu(){
+                navLinks.style.right="-200px";
+            }
+        </script>
+    </body>
+</html>

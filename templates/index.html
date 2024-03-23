@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Mineo's site</title>
+        <link rel="icon" href="static/style/logo.png">
+        <link rel="stylesheet" href="static/style/style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Anek+Malayalam:wght@100..800&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>
+            <section class="header" > 
+                <nav>
+                    <a href="/"><img src="static/style/images/logo.png"></a>
+                    <div class="nav-link" id="navLinks">
+                        <i class="fa fa-times" onclick="hideMenu()"></i>   
+                        <ul>  
+                            <li>
+                                <a href="/">HOME</a>
+                            </li>
+                            <li>
+                                <div class="dropdown">
+                                    <a>MACHINE LEARNING</a>
+                                    <div class="dropdown-content">
+                                        <a href="">K-Nearest Neighbor</a>
+                                        <a href="">Support Vector Machine</a>
+                                        <a href="/Naive_Bayes">Naive Bayes</a>
+                                    </div>
+                                </div>
+                                
+                            </li>
+                            <li>
+                                <a href="">ABOUT</a>
+                            </li>
+                            <li>
+                                <a href="">MISC</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <i class="fa fa-bars" onclick="showMenu()"></i>
+                </nav>
+                <div class="big-text">
+                    <h1>THIS IS MINEO'S SITE</h1>
+                    <p>This is my site, which I use to share what I have achieved!</p>
+                    <a class="storage" href="">Let's go</a>
+                </div>
+            </section>
+            <script>
+                var navLinks = document.getElementById("navLinks");
+                function showMenu(){
+                    navLinks.style.right="0";
+                }
+                function hideMenu(){
+                    navLinks.style.right="-200px";
+                }
+            </script>
+    </body>
+
+</html>

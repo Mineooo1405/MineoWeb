@@ -1,0 +1,5 @@
+ function myFunction() {
+                var x =  predictResult ;
+                document.getElementById("res").innerHTML = "The mail is: " + x;
+                document.getElementById("myInput").style.display = "none";
+            }
